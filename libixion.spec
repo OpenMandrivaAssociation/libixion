@@ -8,7 +8,7 @@ Name:		libixion
 Version:	0.5.0
 Release:	1
 License:	MIT
-Group:		Productivity/Publishing/Word
+Group:		Publishing
 Url:		http://gitorious.org/ixion
 Source0:	http://kohei.us/files/ixion/src/%{name}-%{version}.tar.bz2
 BuildRequires:	libtool
@@ -22,7 +22,7 @@ multiple named targets, or "cells".
 
 %package tools
 Summary:	Spreadsheet file processing library
-Group:		Productivity/Publishing/Word
+Group:		Publishing
 
 %description tools
 Tools to use ixion parser and interpreter from cli.
