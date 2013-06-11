@@ -1,7 +1,7 @@
 %define api	0.6
 %define major	0
-%define libname	%mklibname libixion %{api} %{major}
-%define devname	%mklibname libixion -d
+%define libname	%mklibname ixion %{api} %{major}
+%define devname	%mklibname ixion -d
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
