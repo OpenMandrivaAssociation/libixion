@@ -6,13 +6,13 @@
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
 Version:	0.5.0
-Release:	6
+Release:	7
 License:	MIT
 Group:		Publishing
 Url:		http://gitorious.org/ixion
 Source0:	http://kohei.us/files/ixion/src/%{name}-%{version}.tar.bz2
 BuildRequires:	libtool
-BuildRequires:	boost-devel
+BuildRequires:	boost-devel >= 1.55
 BuildRequires:	libstdc++-devel
 BuildRequires:	mdds-devel
 
