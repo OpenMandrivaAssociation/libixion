@@ -1,12 +1,12 @@
-%define api	0.6
-%define major	0
-%define libname	%mklibname ixion %{api} %{major}
-%define devname	%mklibname ixion -d
+%define api 0.8
+%define major 0
+%define libname %mklibname ixion %{api} %{major}
+%define devname %mklibname ixion -d
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.5.0
-Release:	11
+Version:	0.7.0
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		http://gitorious.org/ixion
@@ -14,7 +14,8 @@ Source0:	http://kohei.us/files/ixion/src/%{name}-%{version}.tar.bz2
 BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.55
 BuildRequires:	libstdc++-devel
-BuildRequires:	mdds-devel
+BuildRequires:	help2man
+BuildRequires:	pkgconfig(mdds)
 
 %description
 Ixion is a general purpose formula parser & interpreter that can calculate
@@ -30,6 +31,7 @@ Tools to use ixion parser and interpreter from cli.
 %package -n %{libname}
 Summary:	Threaded multi-target formula parser & interpreter
 Group:		System/Libraries
+Obsoletes:	%{mklibname ixion 0.6 0} < 0.7.0
 
 %description -n %{libname}
 Ixion is a general purpose formula parser & interpreter that can calculate
@@ -51,9 +53,18 @@ multiple named targets, or "cells".
 %configure \
 	--disable-static
 
+sed -i \
+    -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
+    -e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
 %make
 
+export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+help2man -N -n 'parser' -o ixion-parser.1 ./src/ixion-parser
+help2man -N -n 'sorter' -o ixion-sorter.1 ./src/ixion-sorter
+
 %check
+export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 make check
 
 %install
@@ -69,4 +80,3 @@ make check
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-
