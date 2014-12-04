@@ -6,7 +6,7 @@
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
 Version:	0.5.0
-Release:	10
+Release:	11
 License:	MIT
 Group:		Publishing
 Url:		http://gitorious.org/ixion
@@ -48,7 +48,7 @@ multiple named targets, or "cells".
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 
 %make
