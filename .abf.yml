@@ -1,2 +1,4 @@
+removed_sources:
+  libixion-0.7.0.tar.bz2: 99b8f9f49078ef7e15280f5c73dff639a6e9472c
 sources:
-  "libixion-0.7.0.tar.bz2": 99b8f9f49078ef7e15280f5c73dff639a6e9472c
+  libixion-0.9.1.tar.xz: 8ae071e7e89784933caadeffc16ed7b0764350a9
