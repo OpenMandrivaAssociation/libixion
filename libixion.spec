@@ -1,12 +1,13 @@
-%define api 0.10
+%define api 0.11
 %define major 0
 %define libname %mklibname ixion %{api} %{major}
 %define devname %mklibname ixion -d
+%define _disable_rebuild_configure 1
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.9.1
-Release:	3
+Version:	0.11.0
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		http://gitorious.org/ixion
@@ -15,8 +16,8 @@ BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.55
 BuildRequires:	libstdc++-devel
 BuildRequires:	help2man
-BuildRequires:	pkgconfig(mdds)
-BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(mdds-1.0)
+BuildRequires:	pkgconfig(python3)
 
 %description
 Ixion is a general purpose formula parser & interpreter that can calculate
@@ -51,12 +52,7 @@ multiple named targets, or "cells".
 %setup -q
 
 %build
-export CC=gcc
-export CXX=g++
-export PYTHON=%__python2
-%configure LIBS=-lboost_system
-
-sed -i 's#/usr/bin/env python#/usr/bin/env python2#' ./test/ixion-python-test.py
+%configure
 
 sed -i \
     -e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
@@ -77,7 +73,7 @@ make check
 
 %files tools
 %{_bindir}/*
-%{py2_platsitedir}/*.so
+%{py3_platsitedir}/*.so
 
 %files -n %{libname}
 %{_libdir}/libixion-%{api}.so.%{major}*
