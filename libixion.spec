@@ -3,6 +3,7 @@
 %define libname %mklibname ixion %{api} %{major}
 %define devname %mklibname ixion -d
 %define _disable_rebuild_configure 1
+%define _disable_lto 1
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
