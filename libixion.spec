@@ -1,4 +1,4 @@
-%define api 0.11
+%define api 0.12
 %define major 0
 %define libname %mklibname ixion %{api} %{major}
 %define devname %mklibname ixion -d
@@ -7,7 +7,7 @@
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.11.1
+Version:	0.12.1
 Release:	1
 License:	MIT
 Group:		Publishing
