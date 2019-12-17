@@ -1,4 +1,4 @@
-%define api 0.14
+%define api %(echo %{version} |cut -d. -f1-2)
 %define major 0
 %define libname %mklibname ixion %{api} %{major}
 %define devname %mklibname ixion -d
@@ -7,17 +7,19 @@
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.14.1
-Release:	5
+Version:	0.15.0
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		http://gitlab.com/ixion/ixion
 Source0:	https://gitlab.com/ixion/ixion/repository/%{version}/archive.tar.bz2
+Patch0:		ixion-0.15.0-clang.patch
 BuildRequires:	libtool
-BuildRequires:	boost-devel >= 1.71.0
+BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	help2man
-BuildRequires:	pkgconfig(mdds-1.4) >= 1.4.1
+BuildRequires:	pkgconfig(mdds-1.5)
+BuildRequires:	pkgconfig(spdlog)
 BuildRequires:	pkgconfig(python3)
 
 %description
@@ -50,7 +52,7 @@ Ixion is a general purpose formula parser & interpreter that can calculate
 multiple named targets, or "cells".
 
 %prep
-%setup -qn ixion-%{version}-6f9f6d293a9a6184c1c6da1b1362b7417e42184d
+%autosetup -p1 -n ixion-%{version}-5975e27faf73f8f5aac2d0e14a2538785dfa8228
 ./autogen.sh
 
 %build
