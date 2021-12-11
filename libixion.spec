@@ -7,18 +7,17 @@
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.16.1
-Release:	4
+Version:	0.17.0
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		http://gitlab.com/ixion/ixion
-Source0:	https://gitlab.com/ixion/ixion/repository/%{version}/archive.tar.bz2
-Patch0:		ixion-0.16.1-clang-11.patch
+Source0:	https://gitlab.com/ixion/ixion/-/archive/%{version}/ixion-%{version}.tar.bz2
 BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	help2man
-BuildRequires:	pkgconfig(mdds-1.5)
+BuildRequires:	pkgconfig(mdds-2.0)
 BuildRequires:	pkgconfig(spdlog)
 BuildRequires:	pkgconfig(python3)
 
@@ -52,28 +51,25 @@ Ixion is a general purpose formula parser & interpreter that can calculate
 multiple named targets, or "cells".
 
 %prep
-%autosetup -p1 -n ixion-%{version}-def5cc4b6c7d846b05714e7495eddf0346ec401c
+%autosetup -p1 -n ixion-%{version}
 ./autogen.sh
+%configure \
+	--enable-python \
+	--enable-vulkan
 
 %build
-%configure
+%make_build
 
-sed -i \
-	-e 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' \
-	-e 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
-
-%make
-
-export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 help2man -N -n 'parser' -o ixion-parser.1 ./src/ixion-parser
 help2man -N -n 'sorter' -o ixion-sorter.1 ./src/ixion-sorter
 
 %check
-export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 make check
 
 %install
-%makeinstall_std
+%make_install
 
 %files tools
 %{_bindir}/*
@@ -81,6 +77,7 @@ make check
 
 %files -n %{libname}
 %{_libdir}/libixion-%{api}.so.%{major}*
+%{_libdir}/libixion
 
 %files -n %{devname}
 %{_includedir}/*
