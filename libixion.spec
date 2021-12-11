@@ -20,6 +20,7 @@ BuildRequires:	help2man
 BuildRequires:	pkgconfig(mdds-2.0)
 BuildRequires:	pkgconfig(spdlog)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(vulkan)
 
 %description
 Ixion is a general purpose formula parser & interpreter that can calculate
