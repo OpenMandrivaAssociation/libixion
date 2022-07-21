@@ -1,0 +1,11 @@
+diff -up ixion-0.17.0/src/libixion/vulkan_obj.hpp.omv~ ixion-0.17.0/src/libixion/vulkan_obj.hpp
+--- ixion-0.17.0/src/libixion/vulkan_obj.hpp.omv~	2022-07-21 18:55:18.980152522 +0200
++++ ixion-0.17.0/src/libixion/vulkan_obj.hpp	2022-07-21 18:55:34.336206811 +0200
+@@ -9,6 +9,7 @@
+ #define INCLUDED_IXION_VULKAN_OBJ_HPP
+ 
+ #include <vulkan/vulkan.h>
++#include <initializer_list>
+ #include <memory>
+ #include <limits>
+ 

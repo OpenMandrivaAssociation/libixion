@@ -13,6 +13,7 @@ License:	MIT
 Group:		Publishing
 Url:		http://gitlab.com/ixion/ixion
 Source0:	https://gitlab.com/ixion/ixion/-/archive/%{version}/ixion-%{version}.tar.bz2
+Patch0:		ixion-0.17.0-fix-missing-include.patch
 BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
