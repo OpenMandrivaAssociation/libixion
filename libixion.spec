@@ -7,8 +7,8 @@
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.17.0
-Release:	6
+Version:	0.18.1
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		http://gitlab.com/ixion/ixion
@@ -18,7 +18,7 @@ BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	help2man
-BuildRequires:	pkgconfig(mdds-2.0)
+BuildRequires:	pkgconfig(mdds-2.1)
 BuildRequires:	pkgconfig(spdlog)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(vulkan)
