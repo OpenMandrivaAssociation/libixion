@@ -1,14 +1,17 @@
-%define api %(echo %{version} |cut -d. -f1-2)
+%define api 0.18
+# Usually, but not always:
+# %(echo %{version} |cut -d. -f1-2)
 %define major 0
-%define libname %mklibname ixion %{api} %{major}
+%define oldlibname %mklibname ixion 0.18 0
+%define libname %mklibname ixion
 %define devname %mklibname ixion -d
 %define _disable_rebuild_configure 1
-%define _disable_lto 1
+#define _disable_lto 1
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.18.1
-Release:	2
+Version:	0.19.0
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		http://gitlab.com/ixion/ixion
@@ -38,6 +41,7 @@ Tools to use ixion parser and interpreter from cli.
 Summary:	Threaded multi-target formula parser & interpreter
 Group:		System/Libraries
 Obsoletes:	%{mklibname ixion 0.6 0} < 0.7.0
+%rename %{oldlibname}
 
 %description -n %{libname}
 Ixion is a general purpose formula parser & interpreter that can calculate
@@ -60,7 +64,7 @@ multiple named targets, or "cells".
 	--enable-vulkan
 
 %build
-%make_build
+%make_build PYTHON_LIBS=-lpython%{pyver}
 
 export LD_LIBRARY_PATH=`pwd`/src/libixion/.libs:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 help2man -N -n 'parser' -o ixion-parser.1 ./src/ixion-parser
