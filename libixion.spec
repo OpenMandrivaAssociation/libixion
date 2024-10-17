@@ -14,7 +14,7 @@ Version:	0.19.0
 Release:	4
 License:	MIT
 Group:		Publishing
-Url:		http://gitlab.com/ixion/ixion
+Url:		https://gitlab.com/ixion/ixion
 Source0:	https://gitlab.com/ixion/ixion/-/archive/%{version}/ixion-%{version}.tar.bz2
 Patch0:		ixion-0.17.0-fix-missing-include.patch
 BuildRequires:	libtool
