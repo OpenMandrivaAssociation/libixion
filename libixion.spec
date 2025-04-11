@@ -11,7 +11,7 @@
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
 Version:	0.19.0
-Release:	5
+Release:	6
 License:	MIT
 Group:		Publishing
 Url:		https://gitlab.com/ixion/ixion
