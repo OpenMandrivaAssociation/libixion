@@ -17,6 +17,9 @@ Group:		Publishing
 Url:		https://gitlab.com/ixion/ixion
 Source0:	https://gitlab.com/ixion/ixion/-/archive/%{version}/ixion-%{version}.tar.bz2
 Patch0:		ixion-0.17.0-fix-missing-include.patch
+Patch1:		0001-Update-boost.m4-from-the-latest-upstream.patch
+Patch2:		0002-Remove-boost-filesystem-requirement.patch
+
 BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
