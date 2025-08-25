@@ -1,4 +1,4 @@
-%define api 0.18
+%define api 0.20
 # Usually, but not always:
 # %(echo %{version} |cut -d. -f1-2)
 %define major 0
