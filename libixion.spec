@@ -1,4 +1,4 @@
-%define api 0.18
+%define api 0.20
 # Usually, but not always:
 # %(echo %{version} |cut -d. -f1-2)
 %define major 0
@@ -10,13 +10,13 @@
 
 Summary:	Threaded multi-target formula parser & interpreter
 Name:		libixion
-Version:	0.19.0
-Release:	7
+Version:	0.20.0
+Release:	1
 License:	MIT
 Group:		Publishing
 Url:		https://gitlab.com/ixion/ixion
 Source0:	https://gitlab.com/ixion/ixion/-/archive/%{version}/ixion-%{version}.tar.bz2
-Patch0:		ixion-0.17.0-fix-missing-include.patch
+#Patch0:		ixion-0.17.0-fix-missing-include.patch
 Patch1:		0001-Update-boost.m4-from-the-latest-upstream.patch
 Patch2:		0002-Remove-boost-filesystem-requirement.patch
 
@@ -24,7 +24,7 @@ BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	help2man
-BuildRequires:	pkgconfig(mdds-2.1)
+BuildRequires:	pkgconfig(mdds-3.0)
 BuildRequires:	pkgconfig(spdlog)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(vulkan)
