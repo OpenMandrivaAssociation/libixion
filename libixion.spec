@@ -24,7 +24,7 @@ BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	help2man
-BuildRequires:	pkgconfig(mdds-2.1)
+BuildRequires:	pkgconfig(mdds-3.0)
 BuildRequires:	pkgconfig(spdlog)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(vulkan)
