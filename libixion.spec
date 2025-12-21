@@ -20,6 +20,11 @@ Source0:	https://gitlab.com/ixion/ixion/-/archive/%{version}/ixion-%{version}.ta
 Patch1:		0001-Update-boost.m4-from-the-latest-upstream.patch
 Patch2:		0002-Remove-boost-filesystem-requirement.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	boost-devel >= 1.72.0
 BuildRequires:	libstdc++-devel
